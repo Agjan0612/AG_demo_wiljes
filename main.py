@@ -6,6 +6,8 @@ from dash import Dash, html, dash_table, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
 from dash_bootstrap_templates import load_figure_template
 
+import gunicorn
+
 pd.options.display.width= None
 pd.options.display.max_columns= None
 pd.set_option('display.max_rows', 3000)
@@ -183,6 +185,8 @@ load_figure_template('spacelab')
 #WE GAAN DE APP MAKEN
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.SPACELAB])
+
+server = app.server
 
 load_figure_template("SPACELAB")
 app.layout = dbc.Container([
